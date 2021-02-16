@@ -1,5 +1,7 @@
 package com.Toon.ToonTechMod;
 
+import com.Toon.ToonTechMod.Registry.BlockRegistry;
+import com.Toon.ToonTechMod.Registry.ItemRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.InterModComms;
@@ -16,12 +18,13 @@ import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("examplemod")
-public class ExampleMod
+public class ToonTechMod
 {
+    public static final String MODID = "toontechmod";
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public ExampleMod() {
+    public ToonTechMod() {
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the enqueueIMC method for modloading
@@ -32,7 +35,8 @@ public class ExampleMod
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
 
-
+        ItemRegistry.init();
+        BlockRegistry.init();
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
