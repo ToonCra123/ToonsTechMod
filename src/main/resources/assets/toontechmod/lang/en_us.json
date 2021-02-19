@@ -1,3 +1,4 @@
 {
-
+  "item.toontechmod.example_item" : "Testing Stick",
+  "itemGroup.toontechmod" : "Toon's Tech Mod"
 }
